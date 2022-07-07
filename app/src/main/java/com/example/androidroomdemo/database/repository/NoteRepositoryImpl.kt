@@ -4,13 +4,7 @@ import androidx.lifecycle.LiveData
 import com.example.androidroomdemo.database.dao.NoteDao
 import com.example.androidroomdemo.model.NoteModel
 
-class NoteRepositoryImpl : NoteRepository{
-
-    private val noteDao: NoteDao
-
-    constructor(noteDao: NoteDao) {
-        this.noteDao = noteDao
-    }
+class NoteRepositoryImpl(private val noteDao: NoteDao) : NoteRepository{
 
     override val allNotes: LiveData<List<NoteModel>>
         get() = noteDao.getAllNotes()
